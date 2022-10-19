@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import TaskCard from '../components/TaskCard';
 
 export default function Task() {
     const { id } = useParams()
@@ -18,8 +19,7 @@ export default function Task() {
     
     return (
       <ul>
-          <li><strong>Id :</strong> {task.id}</li>
-          <li><strong>Libellé :</strong> {task.label}</li>
+        <TaskCard task={task} />
       </ul>
     )
 }
