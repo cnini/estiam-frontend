@@ -2,23 +2,10 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom
 
 import './App.css';
 
-function Home() {
-  return (
-    <h1>Page d'accueil</h1>
-  )
-}
-
-function Tasks() {
-  return (
-    <h1>Liste des tâches</h1>
-  )
-}
-
-function Task() {
-  return (
-    <h1>Page de détail d'une tâche</h1>
-  )
-}
+// Importation des routes
+import Home from './routes/Home';
+import Tasks from './routes/Tasks';
+import Task from './routes/Task';
 
 function App() {
   return (
