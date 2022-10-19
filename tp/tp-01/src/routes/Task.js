@@ -13,6 +13,7 @@ export default function Task() {
         { id: 6, label: "Cours de piano" }
     ]
 
+    // Number(String) <=> +String : convertir en nombre
     const task = tasks.find(task => task.id === +id)
     
     return (
