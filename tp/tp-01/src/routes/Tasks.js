@@ -1,19 +1,25 @@
+import { useEffect, useState } from "react";
+
+// Importation d'axios
+import request from '../utils/Request';
+
+// Importation du component
+import TaskCard from "../components/TaskCard";
+
 export default function Tasks() {
-    const tasks = [
-        { id: 0, label: "Faire les courses" },
-        { id: 1, label: "Aller à la gym" },
-        { id: 2, label: "Dîner avec les parents" },
-        { id: 3, label: "RDV médical" },
-        { id: 4, label: "Faire le ménage" },
-        { id: 5, label: "Laver et étendre le linge" },
-        { id: 6, label: "Cours de piano" }
-    ]
+    const [tasks, setTasks] = useState([])
+
+    useEffect(() => {
+      request.get('/todos/').then(response => setTasks(response.data))
+    }, [])
 
     return (
       <>
         <h1>Liste des tâches</h1>
         <ul>
-            { tasks.length ? tasks.map(task => (<li key={task.id}>{task.label}</li>)) : '' }
+            { tasks.length ? tasks.map(task => (
+              <TaskCard key={task.id} task={task} />
+            )) : '' }
         </ul>
       </>
     )
