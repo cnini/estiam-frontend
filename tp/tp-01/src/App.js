@@ -2,6 +2,12 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom
 
 import './App.css';
 
+// Importation de Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Importation depuis react-bootstrap
+import Container from 'react-bootstrap/Container';
+
 // Importation des routes
 import Home from './routes/Home';
 import Tasks from './routes/Tasks';
@@ -27,11 +33,12 @@ function App() {
             <Route path="tache/:id" element={<Task />} />
           </Route>
         </Routes>
+      </Router>
 
+      <Container>
         {/* Afficher le contenu de notre page */}
         <Outlet />
-        
-      </Router>
+      </Container>
     </div>
   );
 }
