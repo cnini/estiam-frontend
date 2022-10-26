@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 // Importation d'axios
 import request from '../utils/Request';
 
-// Importation du component
+// Importation des components
 import TaskCard from "../components/TaskCard";
+import TaskForm from "../components/TaskForm";
 
 export default function Tasks() {
     const [tasks, setTasks] = useState([])
@@ -16,11 +17,11 @@ export default function Tasks() {
     return (
       <>
         <h1>Liste des tâches</h1>
-        <ul>
-            { tasks.length ? tasks.map(task => (
-              <TaskCard key={task.id} task={task} />
-            )) : '' }
-        </ul>
+        <div className="container d-flex flex-wrap justify-content-between">
+          { tasks.length ? tasks.map(task => (
+            <TaskCard key={task.id} task={task} />
+          )) : '' }
+        </div>
       </>
     )
 }

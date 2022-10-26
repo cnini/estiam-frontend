@@ -1,25 +1,26 @@
+import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import TaskCard from '../components/TaskCard';
+
+// Importation des components
+import TaskForm from '../components/TaskForm';
+
+// Importation d'axios
+import request from '../utils/Request';
+
+// Traitement du formulaire
+function handleForm() {
+  // TODO
+}
 
 export default function Task() {
     const { id } = useParams()
-    
-    const tasks = [
-        { id: 0, label: "Faire les courses" },
-        { id: 1, label: "Aller à la gym" },
-        { id: 2, label: "Dîner avec les parents" },
-        { id: 3, label: "RDV médical" },
-        { id: 4, label: "Faire le ménage" },
-        { id: 5, label: "Laver et étendre le linge" },
-        { id: 6, label: "Cours de piano" }
-    ]
+    const [task, setTask] = useState([])
 
-    // Number(String) <=> +String : convertir en nombre
-    const task = tasks.find(task => task.id === +id)
+    useEffect(() => {
+      request.get('/todos/' + id).then(response => setTask(response.data))
+    }, [id])
     
     return (
-      <ul>
-        <TaskCard task={task} />
-      </ul>
+      <TaskForm task={task} action="Modifier" onFormSubmit={handleForm} />
     )
 }
