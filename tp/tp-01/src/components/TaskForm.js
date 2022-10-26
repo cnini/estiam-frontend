@@ -37,19 +37,34 @@ export default function TaskForm({ task = {}, action, onFormSubmit }) {
             <Row>
                 <div className="col-sm d-flex flex-column align-items-start mb-3">
                     <label htmlFor="priority" className="fw-light">Priorité</label>
-                    <input type="text" id="priority" defaultValue={priority} onChange={e => setPriority(e.target.value)} className='w-100 ps-2' />
+
+                    <select id="priority" value={priority} onChange={e => setPriority(e.target.value)} className='w-100 ps-1 py-1'>
+                        <option value='HIGH'>HIGH</option>
+                        <option value='MEDIUM'>MEDIUM</option>
+                        <option value='LOW'>LOW</option>
+                    </select>
                 </div>
             </Row>
             <Row>
                 <div className="col-sm d-flex flex-column align-items-start mb-3">
                     <label htmlFor="category" className="fw-light">Catégorie</label>
-                    <input type="text" id="category" defaultValue={category} onChange={e => setCategory(e.target.value)} className='w-100 ps-2' />
+
+                    <select id="category" value={category} onChange={e => setCategory(e.target.value)} className='w-100 ps-1 py-1'>
+                        <option value='LEARNING'>LEARNING</option>
+                        <option value='HOME'>HOME</option>
+                        <option value='WORK'>WORK</option>
+                    </select>
                 </div>
             </Row>
             <Row>
                 <div className="col-sm d-flex flex-column align-items-start mb-4">
                     <label htmlFor="status" className="fw-light">Statut</label>
-                    <input type="text" id="status" defaultValue={status} onChange={e => setStatus(e.target.value)} className='w-100 ps-2' />
+
+                    <select id="status" value={status} onChange={e => setStatus(e.target.value)} className='w-100 ps-1 py-1'>
+                        <option value='TO DO'>TO DO</option>
+                        <option value='IN PROGRESS'>IN PROGRESS</option>
+                        <option value='DONE'>DONE</option>
+                    </select>
                 </div>
             </Row>
             <Row>
