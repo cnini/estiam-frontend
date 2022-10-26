@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 
 export default function TaskCard({ task }) {
     return (
-        <Card className="w-25 m-2">
+        <Card className="m-2">
             <Card.Body>
                 <Card.Title>{task.todo}</Card.Title>
                 <Card.Text>
@@ -18,7 +18,7 @@ export default function TaskCard({ task }) {
                     <strong>Status :</strong> {task.status}
                 </Card.Text>
                 <Card.Text>
-                    <Link to={'/tache/' + task.id} className="btn btn-success">Détails</Link>
+                    <Link to={'/tache/' + task.id} className="btn btn-success">Modifier</Link>
                 </Card.Text>
             </Card.Body>
         </Card>

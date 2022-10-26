@@ -11,6 +11,7 @@ import Container from 'react-bootstrap/Container';
 // Importation des routes
 import Home from './routes/Home';
 import Tasks from './routes/Tasks';
+import NewTask from './routes/NewTask';
 import Task from './routes/Task';
 
 // Importation du contexte
@@ -35,7 +36,10 @@ function App() {
           <Routes>
             <Route path="/">
               <Route index element={<Home />} />
-              <Route path="taches" element={<Tasks />} />
+              <Route path="taches">
+                <Route index element={<Tasks />} />
+                <Route path="nouvelle-tache" element={<NewTask />} />
+              </Route>
               <Route path="tache/:id" element={<Task />} />
             </Route>
           </Routes>
