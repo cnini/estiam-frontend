@@ -6,10 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export default function TaskForm({ task = {}, action, onFormSubmit }) {
-    const [todo, setTodo] = useState(task.todo)
-    const [priority, setPriority] = useState(task.priority)
-    const [category, setCategory] = useState(task.category)
-    const [status, setStatus] = useState(task.status)
+    const [todo, setTodo] = useState('')
+    const [priority, setPriority] = useState('')
+    const [category, setCategory] = useState('')
+    const [status, setStatus] = useState('')
 
     useEffect(() => {
 
@@ -30,7 +30,7 @@ export default function TaskForm({ task = {}, action, onFormSubmit }) {
         <form onSubmit={handleFormSubmit} className='w-25 mx-auto my-4'>
             <Row>
                 <div className="col-sm d-flex flex-column align-items-start mb-3">
-                    <label htmlFor="toto" className="fw-light">Libellé de la tâche</label>
+                    <label htmlFor="todo" className="fw-light">Libellé de la tâche</label>
                     <input type="text" id="todo" defaultValue={todo} onChange={e => setTodo(e.target.value)} className='w-100 ps-2' />
                 </div>
             </Row>

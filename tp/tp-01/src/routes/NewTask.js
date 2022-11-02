@@ -1,10 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import TaskForm from "../components/TaskForm";
+
+import request from "../utils/Request";
 
 export default function NewTask() {
 
+    const navigate = useNavigate()
+
     // Traitement du formulaire
-    function createTask(formTask) {
-        console.log(formTask)
+    function createTask(task) {
+        console.log(task)
+        request.post('/todos/', task).then(response => {
+            console.log('create response ', response)
+            navigate('/taches')
+        })
     }
 
     return (
